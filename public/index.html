@@ -3,14 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Video Convertor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>This is Header</h1>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded shadow-md w-full sm:w-96">
+        <h1 class="text-3xl font-bold mb-8">
+            video convertor
+        </h1>
+
+        <form class="mb-8" id="uploadForm">
+            <input type="file" name="filename" accept="video/*" class="border p-2 w-full"/>
+            <select name="videoFormat" id="videoFormat" class="border w-full mb-4">
+                <option value="avi">AVI</option>
+                <option value="mp4" selected>MP4</option>
+                <option value="3gp" >3GP</option>
+                <option value="flv" >FLV</option>
+                <option value="mov" >MOV</option>
+            </select>
+            <button type="submit" class="bg-blue-500 px-4 text-white py-2 rounded mt-4 w-full" >Convert</button>
+        </form>
+
+        <div style="display: none;" id="progressContainer">
+            <h2 class="text-2xl font-bold mb-4">Conversion Progress</h1>
+                <progress id="progressBar" max="100" value="0" class="w-full mb-4"></progress>
+                <p id="progressText" class="text-lg">0%</p>
+        </div>
+
+        <a id="downloadLink" style="display: none;" download class=" block bg-blue-500 text-center text-white px-4 py-2 mt-4 rounded">
+            Download Converted File
+        </a>
+    </div>
 </body>
 
 <script src="https://cdn.socket.io/4.7.3/socket.io.min.js"></script>
-<script>
-    let socket = io()
+<script src="script.js"></script>
+    
 </script>
 </html>

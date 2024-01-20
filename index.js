@@ -28,8 +28,18 @@ const server = http.createServer(app)
 
 const io = socketIo(server)
 
+let videoFormat;
+const jobs = {
+
+};
+
+app.post('/convert',upload.single('filename'),(req,res) => {
+    console.log(req.file.path)
+})
+
+
 io.on('connection',(socket)=>{
-    console.log(socket)
+    // console.log(socket)
 })
 
 server.listen(3000,()=>{
